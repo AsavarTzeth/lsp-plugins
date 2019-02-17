@@ -31,7 +31,7 @@ ifeq ($(BUILD_PROFILE), x86_64)
 LINK_OBJECTS           += $(X86_IMPL) $(SSE_IMPL) $(SSE2_IMPL) $(SSE3_IMPL) $(SSE4_IMPL) $(AVX_IMPL) $(AVX2_IMPL)
 endif
 ifeq ($(BUILD_PROFILE), armv7a)
-LINK_OBJECTS           += $(ARM_IMPL) $(NEON_D32_IMPL)
+#LINK_OBJECTS           += $(ARM_IMPL) $(NEON_D32_IMPL)
 endif
 
 .PHONY: all target
