@@ -34,6 +34,10 @@ ifneq ($(LSP_TESTING),1)
   endif
 endif
 
+ifeq ($(BUILD_PROFILE),$(filter $(BUILD_PROFILE),armv7a armv8a))
+	CPPFLAGS	+= -Wa,-mimplicit-it=thumb
+endif
+
 UI_OBJFILES             = $(OBJFILES) $(OBJ_UI_CORE) $(OBJ_RES_CORE) 
 UI_LIBS                 = $(LIBS) $(XLIB_LIBS) $(CAIRO_LIBS)
 

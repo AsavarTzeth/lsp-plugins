@@ -2,6 +2,10 @@ rwildcard				= $(foreach d,$(wildcard $1*),$(call rwildcard,$d/,$2) $(filter $(s
 FILES                   = $(addprefix $(OBJDIR)/, $(patsubst %.cpp, %.o, $(call rwildcard, , *.cpp)))
 FILE                    = $(@:$(OBJDIR)/%.o=%.cpp)
 
+ifeq ($(BUILD_PROFILE),$(filter $(BUILD_PROFILE),armv7a armv8a))
+CPPFLAGS		+= -Wa,-mimplicit-it=thumb
+endif
+
 .PHONY: all
 
 all: $(OBJ_CORE)
